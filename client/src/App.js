@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const BASE_URL = ''; // assuming proxy is set in package.json
+const BASE_URL = 'https://book-library-0elp.onrender.com'; // assuming proxy is set in package.json
 
 function App() {
   const [books, setBooks] = useState([]);
