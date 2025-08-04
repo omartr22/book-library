@@ -9,10 +9,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.error("MongoDB connection error:", err));
-
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log("✅ Connected to MongoDB Atlas");
+}).catch(err => {
+  console.error("❌ MongoDB connection error:", err);
+});
 const Book = mongoose.model('Book', new mongoose.Schema({
   title: String,
   author: String,
